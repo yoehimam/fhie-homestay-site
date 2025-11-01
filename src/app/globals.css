@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-brand-light;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    /* Anda bisa menambahkan font kustom di sini jika mau */
+  }
+}

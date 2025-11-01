@@ -1,0 +1,41 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/ff1a16fafef87110.js",
+      "static/chunks/7dd66bdf8a7e5707.js",
+      "static/chunks/b683c16be40904ce.css",
+      "static/chunks/46c435ed2c94d55c.js",
+      "static/chunks/6420740671896b80.js",
+      "static/chunks/569f8ca39997ccda.js",
+      "static/chunks/111c2078ff56494a.js",
+      "static/chunks/3e0f93b37bf948e9.js",
+      "static/chunks/turbopack-ac448172a791a373.js"
+    ],
+    "/kamar/[slug]/page": [
+      "static/chunks/ff1a16fafef87110.js",
+      "static/chunks/7dd66bdf8a7e5707.js",
+      "static/chunks/b683c16be40904ce.css",
+      "static/chunks/46c435ed2c94d55c.js",
+      "static/chunks/5dd5d9ba2b51cdaf.js",
+      "static/chunks/368d92c338e681d9.js",
+      "static/chunks/6420740671896b80.js",
+      "static/chunks/569f8ca39997ccda.js",
+      "static/chunks/111c2078ff56494a.js",
+      "static/chunks/3e0f93b37bf948e9.js",
+      "static/chunks/turbopack-ac448172a791a373.js"
+    ],
+    "/page": [
+      "static/chunks/ff1a16fafef87110.js",
+      "static/chunks/7dd66bdf8a7e5707.js",
+      "static/chunks/b683c16be40904ce.css",
+      "static/chunks/46c435ed2c94d55c.js",
+      "static/chunks/f417165a9b2843bb.js",
+      "static/chunks/368d92c338e681d9.js",
+      "static/chunks/6420740671896b80.js",
+      "static/chunks/569f8ca39997ccda.js",
+      "static/chunks/111c2078ff56494a.js",
+      "static/chunks/3e0f93b37bf948e9.js",
+      "static/chunks/turbopack-ac448172a791a373.js"
+    ]
+  }
+}

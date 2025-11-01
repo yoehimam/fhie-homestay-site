@@ -1,0 +1,263 @@
+'use client';
+
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+
+type Language = 'id' | 'en';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: Translation;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+const translations = {
+  id: {
+    // Header
+    about: 'Tentang',
+    features: 'Fasilitas',
+    rooms: 'Kamar',
+    gallery: 'Galeri',
+    tours: 'Paket Wisata',
+    contact: 'Kontak',
+    bookNow: 'Pesan Sekarang',
+    
+    // Hero
+    heroTitle: "Your Premier Gateway to Bolaang Mongondow Selatan's Natural Wonders",
+    heroSubtitle: 'Pengalaman menginap eksklusif dengan akses langsung ke diving, birdwatching, dan fishing terbaik di Sulawesi Utara',
+    checkIn: 'Check-in',
+    checkOut: 'Check-out',
+    adults: 'Dewasa',
+    children: 'Anak-anak',
+    checkAvailability: 'Cek Ketersediaan',
+    
+    // About
+    aboutTitle: 'Gateway to Bolaang Mongondow Selatan',
+    aboutText1: 'FHie Homestay adalah akomodasi pilihan utama bagi para petualang dan pecinta alam yang ingin mengeksplorasi keindahan tersembunyi Bolaang Mongondow Selatan, Sulawesi Utara. Dengan pengalaman lebih dari 8 tahun melayani wisatawan domestik dan mancanegara, kami berkomitmen memberikan pelayanan terbaik dan pengalaman tak terlupakan.',
+    aboutText2: 'Kawasan Bolaang Mongondow Selatan terkenal dengan kekayaan alam bawah laut yang masih pristine, keanekaragaman hayati burung endemik Sulawesi, serta perairan Laut Sulawesi yang kaya akan ikan besar. Lokasi strategis homestay kami memudahkan akses ke berbagai destinasi wisata alam terbaik di kawasan ini.',
+    aboutCredentials: '✓ Berpengalaman sejak 2016 | ✓ Guide profesional bersertifikat | ✓ Partner operator terpercaya',
+    
+    // Features
+    featuresTitle: 'Fasilitas Premium',
+    springBed: 'Spring Bed',
+    ac: 'AC',
+    heaterWater: 'Heater Water',
+    tv: 'TV',
+    freeWifi: 'Free WiFi',
+    breakfast: 'Breakfast Gratis',
+    
+    // Tours
+    toursTitle: 'Paket Wisata Eksklusif',
+    toursSubtitle: 'Jelajahi keindahan luar biasa Bolaang Mongondow Selatan dengan paket wisata profesional kami. Setiap paket dirancang untuk memberikan pengalaman tak terlupakan dengan panduan ahli, peralatan lengkap, dan jaminan keamanan terbaik. Harga sudah termasuk semua fasilitas yang tercantum.',
+    
+    divingTitle: 'Paket Diving Profesional',
+    divingDesc: 'Jelajahi keindahan bawah laut Bolaang Mongondow Selatan yang memukau dengan terumbu karang pristin dan biota laut yang kaya. Dipandu oleh instruktur bersertifikat PADI dengan pengalaman 10+ tahun.',
+    
+    birdwatchingTitle: 'Paket Birdwatching Eksklusif',
+    birdwatchingDesc: 'Amati berbagai jenis burung endemik Sulawesi di habitat aslinya bersama guide profesional. Kawasan Bolaang Mongondow Selatan terkenal dengan keanekaragaman hayati burung langka yang menakjubkan.',
+    
+    fishingTitle: 'Paket Deep Sea Fishing',
+    fishingDesc: 'Rasakan pengalaman memancing di perairan dalam Laut Sulawesi yang kaya akan ikan besar. Cocok untuk pemula hingga profesional dengan peralatan lengkap dan pemandu berpengalaman.',
+    
+    fullDay: 'Full Day',
+    halfDay: 'Half Day (4-5 jam)',
+    fullDay8h: 'Full Day (8 jam)',
+    packageIncludes: 'Paket Termasuk:',
+    bookPackage: 'Pesan Paket Ini',
+    
+    // Package includes items
+    divingIncludes: [
+      'Peralatan diving lengkap (tank, BCD, regulator, wetsuit)',
+      'Instruktur PADI bersertifikat',
+      '2x diving session di spot terbaik',
+      'Underwater documentation',
+      'Makan siang & snack',
+      'Transportasi dari homestay',
+      'Asuransi selama kegiatan'
+    ],
+    birdwatchingIncludes: [
+      'Guide birdwatching berpengalaman',
+      'Binokuler professional grade',
+      'Bird checklist & field guide',
+      'Dokumentasi foto',
+      'Light breakfast & coffee',
+      'Transportasi ke spot terbaik',
+      'Tiket masuk kawasan konservasi'
+    ],
+    fishingIncludes: [
+      'Sewa perahu + kapten berpengalaman',
+      'Peralatan pancing profesional',
+      'Umpan hidup & umpan buatan',
+      'Cooler box untuk hasil tangkapan',
+      'BBQ hasil tangkapan',
+      'Makan siang di laut',
+      'Life jacket & safety equipment',
+      'Dokumentasi'
+    ],
+    
+    operatorsTitle: 'Partner & Operator Terpercaya',
+    diveOperator: 'Dive Operator',
+    diveOperatorDesc: 'Partner diving bersertifikat PADI dengan pengalaman 10+ tahun',
+    fishingOperator: 'Fishing Operator',
+    fishingOperatorDesc: 'Pemandu memancing berpengalaman dengan spot terbaik',
+    birdGuide: 'Bird Guide',
+    birdGuideDesc: 'Guide profesional untuk pengamatan burung langka',
+    
+    // Rooms
+    roomsTitle: 'Kamar & Suite Pilihan',
+    viewDetails: 'Lihat Detail',
+    fromPrice: 'Mulai dari',
+    perNight: '/malam',
+    
+    // Discount
+    discountTitle: 'Penawaran Spesial Untuk Anda',
+    discountDesc: 'Dapatkan diskon harga spesial bagi Anda yang menginap lebih dari 2 hari. Hubungi kami sekarang untuk mengklaim penawaran ini!',
+    claimDiscount: 'Klaim Diskon Sekarang',
+    
+    // Gallery
+    galleryTitle: 'Galeri Foto',
+    galleryDesc: 'Lihat lebih dekat suasana nyaman dan fasilitas lengkap yang kami tawarkan di FHie Homestay',
+    
+    // Footer
+    footerDesc: 'Penginapan nyaman dengan pemandangan alam yang asri. Pilihan terbaik untuk liburan Anda.',
+    contactUs: 'Hubungi Kami',
+    location: 'Lokasi',
+    copyright: 'FHie Homestay. Didesain dengan ❤️. All rights reserved.',
+  },
+  en: {
+    // Header
+    about: 'About',
+    features: 'Features',
+    rooms: 'Rooms',
+    gallery: 'Gallery',
+    tours: 'Tour Packages',
+    contact: 'Contact',
+    bookNow: 'Book Now',
+    
+    // Hero
+    heroTitle: "Your Premier Gateway to Bolaang Mongondow Selatan's Natural Wonders",
+    heroSubtitle: 'Exclusive accommodation experience with direct access to the best diving, birdwatching, and fishing in North Sulawesi',
+    checkIn: 'Check-in',
+    checkOut: 'Check-out',
+    adults: 'Adults',
+    children: 'Children',
+    checkAvailability: 'Check Availability',
+    
+    // About
+    aboutTitle: 'Gateway to Bolaang Mongondow Selatan',
+    aboutText1: 'FHie Homestay is the premier accommodation choice for adventurers and nature lovers who want to explore the hidden beauty of South Bolaang Mongondow, North Sulawesi. With over 8 years of experience serving domestic and international tourists, we are committed to providing the best service and unforgettable experiences.',
+    aboutText2: 'South Bolaang Mongondow region is renowned for its pristine underwater natural wealth, endemic Sulawesi bird biodiversity, and the Sulawesi Sea waters rich in big fish. Our homestay\'s strategic location provides easy access to the best natural tourism destinations in this area.',
+    aboutCredentials: '✓ Experienced since 2016 | ✓ Certified professional guides | ✓ Trusted operator partners',
+    
+    // Features
+    featuresTitle: 'Premium Facilities',
+    springBed: 'Spring Bed',
+    ac: 'AC',
+    heaterWater: 'Water Heater',
+    tv: 'TV',
+    freeWifi: 'Free WiFi',
+    breakfast: 'Free Breakfast',
+    
+    // Tours
+    toursTitle: 'Exclusive Tour Packages',
+    toursSubtitle: 'Explore the extraordinary beauty of South Bolaang Mongondow with our professional tour packages. Each package is designed to provide an unforgettable experience with expert guides, complete equipment, and the best safety guarantee. Price includes all listed facilities.',
+    
+    divingTitle: 'Professional Diving Package',
+    divingDesc: 'Explore the stunning underwater beauty of South Bolaang Mongondow with pristine coral reefs and rich marine life. Guided by PADI certified instructors with 10+ years of experience.',
+    
+    birdwatchingTitle: 'Exclusive Birdwatching Package',
+    birdwatchingDesc: 'Observe various endemic Sulawesi bird species in their natural habitat with professional guides. South Bolaang Mongondow area is famous for its amazing rare bird biodiversity.',
+    
+    fishingTitle: 'Deep Sea Fishing Package',
+    fishingDesc: 'Experience deep sea fishing in the Sulawesi Sea waters rich in big fish. Suitable for beginners to professionals with complete equipment and experienced guides.',
+    
+    fullDay: 'Full Day',
+    halfDay: 'Half Day (4-5 hours)',
+    fullDay8h: 'Full Day (8 hours)',
+    packageIncludes: 'Package Includes:',
+    bookPackage: 'Book This Package',
+    
+    // Package includes items
+    divingIncludes: [
+      'Complete diving equipment (tank, BCD, regulator, wetsuit)',
+      'PADI certified instructor',
+      '2x diving sessions at the best spots',
+      'Underwater documentation',
+      'Lunch & snacks',
+      'Transportation from homestay',
+      'Activity insurance'
+    ],
+    birdwatchingIncludes: [
+      'Experienced birdwatching guide',
+      'Professional grade binoculars',
+      'Bird checklist & field guide',
+      'Photo documentation',
+      'Light breakfast & coffee',
+      'Transportation to the best spots',
+      'Conservation area entrance ticket'
+    ],
+    fishingIncludes: [
+      'Boat rental + experienced captain',
+      'Professional fishing equipment',
+      'Live bait & artificial lures',
+      'Cooler box for catches',
+      'BBQ of caught fish',
+      'Lunch at sea',
+      'Life jacket & safety equipment',
+      'Documentation'
+    ],
+    
+    operatorsTitle: 'Trusted Partners & Operators',
+    diveOperator: 'Dive Operator',
+    diveOperatorDesc: 'PADI certified diving partner with 10+ years experience',
+    fishingOperator: 'Fishing Operator',
+    fishingOperatorDesc: 'Experienced fishing guide with the best spots',
+    birdGuide: 'Bird Guide',
+    birdGuideDesc: 'Professional guide for rare bird observation',
+    
+    // Rooms
+    roomsTitle: 'Featured Rooms & Suites',
+    viewDetails: 'View Details',
+    fromPrice: 'From',
+    perNight: '/night',
+    
+    // Discount
+    discountTitle: 'Special Offer For You',
+    discountDesc: 'Get special discount prices for stays of more than 2 days. Contact us now to claim this offer!',
+    claimDiscount: 'Claim Discount Now',
+    
+    // Gallery
+    galleryTitle: 'Photo Gallery',
+    galleryDesc: 'Take a closer look at the comfortable atmosphere and complete facilities we offer at FHie Homestay',
+    
+    // Footer
+    footerDesc: 'Comfortable accommodation with natural scenery. The best choice for your vacation.',
+    contactUs: 'Contact Us',
+    location: 'Location',
+    copyright: 'FHie Homestay. Designed with ❤️. All rights reserved.',
+  }
+};
+
+type TranslationsMap = typeof translations;
+type Translation = TranslationsMap[Language];
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>('id');
+  
+  const t = translations[language];
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within LanguageProvider');
+  }
+  return context;
+};
