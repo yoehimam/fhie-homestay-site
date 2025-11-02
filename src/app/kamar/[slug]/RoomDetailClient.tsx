@@ -6,15 +6,16 @@ import { Bed, Wind, Thermometer, Tv, Wifi, Coffee, ChevronLeft } from 'lucide-re
 import Link from 'next/link';
 
 // Data kamar sementara - idealnya ini datang dari CMS atau database
+const basePath = '/fhie-homestay-site';
 export const roomData = {
   'kamar-deluxe': {
     name: 'Kamar Deluxe',
     description: 'Nikmati kenyamanan superior di Kamar Deluxe kami. Dirancang untuk para tamu yang menghargai kemewahan dan ruang, kamar ini menawarkan tempat tidur ukuran king yang mewah, area duduk yang nyaman, dan pemandangan taman yang menenangkan. Semua fasilitas modern tersedia untuk memastikan pengalaman menginap Anda tak terlupakan.',
     price: 'Rp 500.000',
     images: [
-      '/images/kamar-deluxe.jpg',
-      '/images/interior.jpg',
-      '/images/kamar-mandi.jpg',
+      `${basePath}/images/kamar-deluxe.jpg`,
+      `${basePath}/images/interior.jpg`,
+      `${basePath}/images/kamar-mandi.jpg`,
     ],
     facilities: [
       { icon: <Bed size={24} />, name: 'Spring Bed King Size' },
@@ -30,9 +31,9 @@ export const roomData = {
     description: 'Suite Keluarga kami adalah pilihan sempurna untuk liburan bersama orang terkasih. Dengan dua tempat tidur queen yang nyaman, ruang tamu terpisah, dan balkon pribadi dengan pemandangan alam, suite ini menawarkan privasi dan kenyamanan. Fasilitas lengkap memastikan semua kebutuhan keluarga Anda terpenuhi.',
     price: 'Rp 750.000',
     images: [
-      '/images/kamar-twin.jpg',
-      '/images/interior.jpg',
-      '/images/kamar-mandi.jpg',
+      `${basePath}/images/kamar-twin.jpg`,
+      `${basePath}/images/interior.jpg`,
+      `${basePath}/images/kamar-mandi.jpg`,
     ],
     facilities: [
       { icon: <Bed size={24} />, name: '2 Spring Bed Queen Size' },

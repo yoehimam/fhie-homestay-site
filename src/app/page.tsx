@@ -12,14 +12,15 @@ import Image from 'next/image';
 import { Waves, Bird, Fish } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Gallery Images
+// Gallery Images - Gunakan basePath untuk GitHub Pages
+const basePath = '/fhie-homestay-site';
 const galleryImages = [
-  { src: '/images/pemandangan.jpg', alt: 'Pemandangan FHie Homestay', title: 'Pemandangan Alam' },
-  { src: '/images/interior.jpg', alt: 'Interior FHie Homestay', title: 'Interior Nyaman' },
-  { src: '/images/kamar-deluxe.jpg', alt: 'Kamar Deluxe', title: 'Kamar Deluxe' },
-  { src: '/images/kamar-twin.jpg', alt: 'Kamar Twin', title: 'Kamar Twin' },
-  { src: '/images/kamar-mandi.jpg', alt: 'Kamar Mandi', title: 'Kamar Mandi' },
-  { src: '/images/IMG-20251020-WA0007.jpg', alt: 'Fasilitas Homestay', title: 'Fasilitas' },
+  { src: `${basePath}/images/pemandangan.jpg`, alt: 'Pemandangan FHie Homestay', title: 'Pemandangan Alam' },
+  { src: `${basePath}/images/interior.jpg`, alt: 'Interior FHie Homestay', title: 'Interior Nyaman' },
+  { src: `${basePath}/images/kamar-deluxe.jpg`, alt: 'Kamar Deluxe', title: 'Kamar Deluxe' },
+  { src: `${basePath}/images/kamar-twin.jpg`, alt: 'Kamar Twin', title: 'Kamar Twin' },
+  { src: `${basePath}/images/kamar-mandi.jpg`, alt: 'Kamar Mandi', title: 'Kamar Mandi' },
+  { src: `${basePath}/images/IMG-20251020-WA0007.jpg`, alt: 'Fasilitas Homestay', title: 'Fasilitas' },
 ];
 
 export default function Home() {

@@ -50,7 +50,7 @@ Apakah masih tersedia? Terima kasih.`;
   return (
     <section
       className="relative h-screen bg-cover bg-center text-white flex flex-col justify-center items-center px-6"
-      style={{ backgroundImage: "url('/images/pemandangan.jpg')" }}
+      style={{ backgroundImage: "url('/fhie-homestay-site/images/pemandangan.jpg')" }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 text-center max-w-4xl mx-auto">

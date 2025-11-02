@@ -12,7 +12,7 @@ const About = () => {
       <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="relative w-full h-80 md:h-full rounded-lg overflow-hidden shadow-2xl">
           <Image 
-            src="/images/interior.jpg"
+            src="/fhie-homestay-site/images/interior.jpg"
             alt="Interior FHie Homestay"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"

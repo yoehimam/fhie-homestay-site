@@ -5,19 +5,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const basePath = '/fhie-homestay-site';
 const units = [
   {
     name: 'Kamar Deluxe',
     slug: 'kamar-deluxe',
     description: 'Kamar luas dengan spring bed empuk dan AC untuk kenyamanan maksimal.',
-    image: '/images/kamar-deluxe.jpg',
+    image: `${basePath}/images/kamar-deluxe.jpg`,
     price: 'Mulai dari Rp 500.000/malam',
   },
   {
     name: 'Suite Keluarga',
     slug: 'suite-keluarga',
     description: 'Ruang lebih besar dengan pemandangan taman, cocok untuk keluarga.',
-    image: '/images/kamar-twin.jpg',
+    image: `${basePath}/images/kamar-twin.jpg`,
     price: 'Mulai dari Rp 750.000/malam',
   },
 ];
