@@ -13,6 +13,12 @@ const Hero = () => {
   const handleCheckAvailability = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validasi: checkOut harus setelah checkIn
+    if (checkIn && checkOut && new Date(checkOut) <= new Date(checkIn)) {
+      alert('Tanggal check-out harus setelah tanggal check-in!');
+      return;
+    }
+    
     // Format tanggal untuk tampilan yang lebih baik
     const formatDate = (dateString: string) => {
       const date = new Date(dateString);
@@ -69,11 +75,11 @@ Apakah masih tersedia? Terima kasih.`;
           </div>
           <div className="flex flex-col text-left">
             <label htmlFor="adults" className="text-xs font-semibold mb-1">{t.adults}</label>
-            <input type="number" id="adults" min="1" value={adults} onChange={(e) => setAdults(parseInt(e.target.value))} className="p-2 text-sm rounded-md text-gray-800" />
+            <input type="number" id="adults" min="1" value={adults} onChange={(e) => setAdults(parseInt(e.target.value) || 1)} className="p-2 text-sm rounded-md text-gray-800" />
           </div>
           <div className="flex flex-col text-left">
             <label htmlFor="children" className="text-xs font-semibold mb-1">{t.children}</label>
-            <input type="number" id="children" min="0" value={children} onChange={(e) => setChildren(parseInt(e.target.value))} className="p-2 text-sm rounded-md text-gray-800" />
+            <input type="number" id="children" min="0" value={children} onChange={(e) => setChildren(parseInt(e.target.value) || 0)} className="p-2 text-sm rounded-md text-gray-800" />
           </div>
           <button type="submit" className="bg-ocean-teal hover:bg-teal-600 text-white font-semibold p-2 rounded-md w-full h-full text-sm shadow-lg">{t.checkAvailability}</button>
         </form>

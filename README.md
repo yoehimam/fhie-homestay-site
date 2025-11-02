@@ -1,17 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fhie Homestay Site
+
+Ini adalah proyek website untuk Fhie Homestay, dibuat menggunakan Next.js dan dirancang untuk di-deploy ke GitHub Pages.
 
 ## Getting Started
 
-First, run the development server:
+Untuk menjalankan server pengembangan di komputer lokal Anda:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

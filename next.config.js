@@ -10,8 +10,8 @@ const nextConfig = {
 
   // OPSIONAL: Jika Anda deploy ke `username.github.io/nama-repo`,
   // hapus komentar di bawah dan ganti `nama-repo` dengan nama repositori Anda.
-  // basePath: '/nama-repo',
-  // assetPrefix: '/nama-repo',
+  basePath: '/fhie-homestay-site',
+  assetPrefix: '/fhie-homestay-site',
 };
 
 module.exports = nextConfig;
